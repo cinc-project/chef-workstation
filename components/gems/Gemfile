@@ -53,18 +53,21 @@ group(:omnibus_package) do
   # fixes.
 
   if Gem.ruby_version >= Gem::Version.new("3.1.0")
-    gem "chef", "= 18.0.185"
-    gem "chef-bin", "=18.0.185"
+    gem "chef", "= 18.0.185", source: "https://packagecloud.io/cinc-project/stable"
+    gem "chef-bin", "=18.0.185", source: "https://packagecloud.io/cinc-project/stable"
     gem "ohai", "~> 18.0"
-    gem "inspec-bin", "~> 5.18.14"
+    gem "cinc-auditor-bin", "~> 5.18.14", source: "https://packagecloud.io/cinc-project/stable"
+    gem "inspec", "~> 5.18.14", source: "https://packagecloud.io/cinc-project/stable"
   else
     # Ruby 2.7 presumably - TODO remove this when 2.7 is sunsetted
-    gem "chef", ">= 17.0"
-    gem "chef-bin", ">= 17.0"
+    gem "chef", ">= 17.0", source: "https://packagecloud.io/cinc-project/stable"
+    gem "chef-bin", ">= 17.0", source: "https://packagecloud.io/cinc-project/stable"
     gem "ohai", ">= 17.0"
-    gem "inspec-bin", "~> 4.23"
+    gem "cinc-auditor-bin", "~> 4.23", source: "https://packagecloud.io/cinc-project/stable"
+    gem "inspec", "~> 4.23", source: "https://packagecloud.io/cinc-project/stable"
   end
 
+  gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
   gem "cheffish", ">= 17.0"
 
   # chefspec
@@ -110,7 +113,7 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
-  gem "mixlib-install"
+  gem "mixlib-install", source: "https://packagecloud.io/cinc-project/stable"
   gem "nokogiri", ">= 1.11.7"
   # Locked because pry-byebug is broken with 13+
   # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
