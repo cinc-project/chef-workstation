@@ -13,7 +13,7 @@
     <Package InstallerVersion="200" InstallPrivileges="elevated"
       Compressed="yes" InstallScope="perMachine" />
 
-    <Media Id="1" Cabinet="ChefWorkstation.cab" EmbedCab="yes" CompressionLevel="high" />
+    <Media Id="1" Cabinet="CincWorkstation.cab" EmbedCab="yes" CompressionLevel="high" />
 
     <!--
     Take advantage of Windows Installer 5.0 feature (if available) to disable
@@ -30,7 +30,7 @@
     -->
     <% if fastmsi %>
     <SetProperty Id="FastUnzip"
-      Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=chef-workstation"
+      Value="FASTZIPDIR=[INSTALLLOCATION];FASTZIPAPPNAME=cinc-workstation"
       Sequence="execute"
       Before="FastUnzip" />
 
@@ -44,7 +44,7 @@
     <Binary Id="CustomActionFastMsiDLL"
       SourceFile="CustomActionFastMsi.CA.dll" />
 
-    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Chef Workstation App*"' />
+    <Property Id="WixQuietExecCmdLine" Value='"[WindowsFolder]\System32\taskkill.exe" /T /F /IM "Cinc Workstation App*"' />
 
     <Property Id="WixShellExecTarget" Value="[WSAPPDIR]\Chef Workstation App.exe" />
     <CustomAction Id="LaunchApplication"
@@ -60,7 +60,7 @@
 
     <CustomAction Id="Cleanup"
       Directory="INSTALLLOCATION"
-      ExeCommand="cmd /C &quot;rd /S /Q chef-workstation&quot;"
+      ExeCommand="cmd /C &quot;rd /S /Q cinc-workstation&quot;"
       Execute="deferred"
       Impersonate="no"
       Return="ignore" />
@@ -104,14 +104,14 @@
   <Directory Id="TARGETDIR" Name="SourceDir">
     <Directory Id="WINDOWSVOLUME">
       <Directory Id="INSTALLLOCATION" Name="opscode">
-        <Directory Id="PROJECTLOCATION" Name="chef-workstation">
+        <Directory Id="PROJECTLOCATION" Name="cinc-workstation">
           <Directory Id="PROJECTLOCATIONBIN" Name="bin">
             <Component Id="ChefWSPath" Guid="{BC744260-FD5B-4A0F-8EE5-76283072CC09}" >
               <Environment Id="Environment"
                 Name="PATH" Action="set" Part="last" System="yes" Value="[PROJECTLOCATIONBIN]" />
             </Component>
             <Component Id="ChefWSRegistryEntries" Guid="{67E30C25-5311-4584-9A17-5D47AC28F9CD}">
-              <RegistryKey Root="HKLM" Key="Software\Chef\Chef Workstation">
+              <RegistryKey Root="HKLM" Key="Software\Cinc\Cinc Workstation">
                 <RegistryValue Type="string" Name="InstallDir" Value="[PROJECTLOCATION]" />
                 <RegistryValue Type="string" Name="BinDir" Value="[PROJECTLOCATIONBIN]" />
               </RegistryKey>
@@ -158,7 +158,7 @@
               </Component>
             </Directory>
             <Directory Id="COMPONENTS" Name="components">
-              <Directory Id="WSAPPDIR" Name="chef-workstation-app">
+              <Directory Id="WSAPPDIR" Name="cinc-workstation-app">
               </Directory>
             </Directory>
             <Directory Id="EMBEDDED" Name="embedded" >
@@ -173,8 +173,8 @@
         </Directory>
       </Directory>
       <Directory Id="ProgramMenuFolder">
-        <!-- Place shortcuts grouped in a "Chef Workstation" folder in the Start menu -->
-        <Directory Id="ChefWorkstationFolder" Name="Chef Workstation">
+        <!-- Place shortcuts grouped in a "Cinc Workstation" folder in the Start menu -->
+        <Directory Id="CincWorkstationFolder" Name="Cinc Workstation">
           <Component Id="PowershellStartMenuShortcut" Guid="{6DD3FFF3-E009-40E7-B1C2-EF606B941CCD}">
             <Shortcut Id="PowershellStartMenuShortcutDef"
               Name="!(loc.ChefWSPowershellShortcutDefName)"
@@ -188,7 +188,7 @@
             <Shortcut Id="ChefWSAppStartMenuShortcutDef"
               Name="!(loc.ChefWSAppShortcutName)"
               Description="!(loc.ChefWSAppShortcutDesc)"
-              Target="[WSAPPDIR]\Chef Workstation App.exe"
+              Target="[WSAPPDIR]\Cinc Workstation App.exe"
               Icon="cws.ico"/>
           </Component>
         </Directory>
@@ -200,7 +200,7 @@
           <Shortcut Id="ChefAppWSAutostartShortcutDef"
             Name="!(loc.ChefWSAppShortcutName)"
             Description="!(loc.ChefWSAppShortcutDesc)"
-            Target="[WSAPPDIR]\Chef Workstation App.exe"
+            Target="[WSAPPDIR]\Cinc Workstation App.exe"
             Icon="cws.ico"/>
         </Component>
       </Directory>
@@ -220,11 +220,11 @@
 
     <!-- Set the components defined in our fragment files that will be used for our feature  -->
     <!-- Renders the following install options
-         [x] Chef Workstation
+         [x] Cinc Workstation
            [x] Start Menu Shortcut
            [x] Desktop Shortcut
            [ ] Environment Customizations
-         [x] Chef Workstation App
+         [x] Cinc Workstation App
            [x] Start at login
     -->
     <Feature Id="ChefWSFeature" Title="!(loc.FeatureMainName)"
@@ -267,7 +267,7 @@
     <Icon Id="cws.ico" SourceFile="Resources\assets\cws.ico"/>
     <Icon Id="cwsps.ico" SourceFile="Resources\assets\cwsps.ico"/>
     <Property Id="ARPPRODUCTICON" Value="cws16.ico" />
-    <Property Id="ARPHELPLINK" Value="https://community.chef.io/tools/chef-workstation/" />
+    <Property Id="ARPHELPLINK" Value="https://cinc.sh/" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.LaunchChefWSApp)" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
