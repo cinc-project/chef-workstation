@@ -48,8 +48,9 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.4.38"
-  gem "chef-bin", "= 16.4.38"
+  gem "chef", "= 16.4.38", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-bin", "= 16.4.38", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-zero", source: "https://packagecloud.io/ramereth/cinc"
   gem "ohai", ">= 16.4"
   gem "cheffish", ">= 16.0"
 
@@ -58,8 +59,9 @@ group(:omnibus_package) do
   gem "fauxhai-ng", "~> 8"
 
   # inspec
-  gem "inspec-bin", "~> 4.21" # the actual inspec CLI binary
-  gem "inspec", "~> 4.21"
+  # the actual cinc-auditor CLI binary
+  gem "cinc-auditor-bin", "~> 4.21", source: "https://packagecloud.io/cinc-project/stable"
+  gem "inspec", "~> 4.21", source: "https://packagecloud.io/cinc-project/stable"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 2.5"
@@ -109,7 +111,7 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
-  gem "mixlib-install"
+  gem "mixlib-install", source: "https://packagecloud.io/cinc-project/stable"
   # When we update to Nokogiri 1.11 we will need to manually compile it
   # see https://github.com/chef/chef-workstation/commit/1bd21d83af130ccb4bcfd3e5bcf621d2a5231608
   gem "nokogiri", ">= 1.10.10", "< 1.11"
