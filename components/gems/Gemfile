@@ -52,11 +52,13 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  gem "chef", ">= 18.2"
-  gem "chef-bin", ">= 18.2"
-  gem "chef-utils", ">= 18.2"
-  gem "ohai", ">= 18.1"
+  gem "chef", ">= 18.2", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-bin", ">= 18.2", source: "https://packagecloud.io/cinc-project/stable"
+  gem "ohai", "~> 18.1"
+  gem "cinc-auditor-bin", "~> 5.18.14", source: "https://packagecloud.io/cinc-project/stable"
+  gem "inspec", "~> 5.18.14", source: "https://packagecloud.io/cinc-project/stable"
 
+  gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
   gem "cheffish", ">= 17.0"
 
   gem "inspec-bin", "~> 5"
@@ -104,7 +106,7 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
-  gem "mixlib-install"
+  gem "mixlib-install", source: "https://packagecloud.io/cinc-project/stable"
   gem "nokogiri", ">= 1.11.7"
   # Locked because pry-byebug is broken with 13+
   # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
