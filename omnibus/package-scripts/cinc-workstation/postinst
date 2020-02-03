@@ -23,7 +23,7 @@
 #
 
 PROGNAME=`basename $0`
-INSTALLER_DIR=/opt/chef-workstation
+INSTALLER_DIR=/opt/cinc-workstation
 
 error_exit()
 {
@@ -42,7 +42,6 @@ if is_darwin; then
 else
     PREFIX="/usr"
 fi
-
 
 hab_target_path="$PREFIX/bin/hab"
 if [ -L "$hab_target_path" ]; then
@@ -75,9 +74,18 @@ if [ "$moved" = "1" ]; then
   echo ""
 fi
 
-binaries="chef-run berks chef chef-cli chef-analyze chef-apply chef-shell chef-solo chef-vault cookstyle delivery foodcritic inspec kitchen knife ohai chef-client hab"
+binaries="chef-run berks chef chef-cli chef-analyze cinc-apply cinc-shell cinc-solo chef-vault cookstyle delivery foodcritic cinc-auditor kitchen knife ohai cinc-client hab"
 for binary in $binaries; do
   ln -sf "$INSTALLER_DIR/bin/$binary" $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
+done
+
+wrapper_links="chef-apply chef-client chef-shell chef-solo inspec"
+link_target="cinc-wrapper"
+for link in $wrapper_links; do
+  if [ ! -e $PREFIX/bin/$link ]; then
+    echo "Symlinking $link command to cinc-wrapper for compatibility..."
+    ln -sf $INSTALLER_DIR/bin/$link_target $PREFIX/bin/$link || error_exit "Cannot link $link_target to $PREFIX/bin/$link"
+  fi
 done
 
 if is_darwin; then
@@ -118,25 +126,25 @@ else # linux - postinst does not run for windows.
   # 0 rc means grep found 'not found' text - and we have missing deps.
   if [ $? -eq 0 ]; then
     echo ""
-    echo "Chef Workstation ships with a toolbar application, the Chef Workstation App."
+    echo "Cinc Workstation ships with a toolbar application, the Cinc Workstation App."
     echo "To run this application some additional dependencies must be installed."
     echo "Using your platform's package manager to install the 'electron' package is "
     echo "the easiest way to meet the dependency requirements."
     echo ""
-    echo "You can then launch the App by running 'chef-workstation-app'."
+    echo "You can then launch the App by running 'cinc-workstation-app'."
     echo "The App will then be available in the system tray."
   else
     echo ""
-    echo "The Chef Workstation App is available."
+    echo "The Cinc Workstation App is available."
     echo ""
-    echo "Launch the App by running 'chef-workstation-app'."
+    echo "Launch the App by running 'cinc-workstation-app'."
     echo "The App will then be available in the system tray."
   fi
   ln -sf $cwa_app_path $PREFIX/bin
 fi
 
 echo ""
-echo "Thank you for installing Chef Workstation!"
-echo "You can find some tips on getting started at https://docs.chef.io/workstation/"
+echo "Thank you for installing Cinc Workstation!"
+echo "You can find some tips on getting started at https://cinc.sh/"
 echo ""
 exit 0
