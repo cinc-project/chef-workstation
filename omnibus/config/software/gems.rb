@@ -78,7 +78,15 @@ build do
 
   # Update Gemfile.lock for Cinc dependencies to allow bundle to work properly.
   # The gem windows-pr is needed to properly fix the dependency.
-  bundle "lock --conservative --update chef-bin chef windows-pr"
+  cinc_gems =
+    %w(
+      chef
+      chef-bin
+      chef-zero
+      inspec
+      mixlib-install
+    )
+  bundle "lock --conservative --update #{cinc_gems.join(" ")} windows-pr"
 
   # install the whole bundle first
   bundle "install --jobs 10 --without #{excluded_groups.join(" ")}", env: env
