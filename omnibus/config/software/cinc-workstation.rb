@@ -15,12 +15,12 @@
 #
 
 name "cinc-workstation"
-source path: File.join(ENV['CI_PROJECT_DIR'], "cinc-workstation", "cinc-workstation")
+source path: '../../cinc-workstation/cinc-workstation'
 license :project_license
 
 build do
-	copy "#{project_dir}/cinc-wrapper", "#{install_dir}/bin/"
-	%w(chef-apply chef-client chef-shell chef-solo inspec).each do |bin|
-		link "#{install_dir}/bin/cinc-wrapper", "#{install_dir}/bin/#{bin}"
-	end
+  copy "#{project_dir}/cinc-wrapper", "#{install_dir}/bin/"
+  %w(chef-apply chef-client chef-shell chef-solo inspec).each do |bin|
+    link "#{install_dir}/bin/cinc-wrapper", "#{install_dir}/bin/#{bin}"
+  end
 end
