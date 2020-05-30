@@ -99,9 +99,9 @@ dependency "ruby-cleanup"
 dependency "more-ruby-cleanup"
 
 dependency "go"
-dependency "main-chef-wrapper"
+dependency "main-cinc-wrapper"
 dependency "chef-automate-collect"
-dependency "chef-analyze"
+dependency "cinc-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
 
