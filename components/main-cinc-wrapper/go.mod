@@ -1,4 +1,4 @@
-module github.com/chef/chef-workstation/components/main-chef-wrapper
+module gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper
 
 go 1.13
 
