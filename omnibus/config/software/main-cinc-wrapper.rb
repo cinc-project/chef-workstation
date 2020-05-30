@@ -19,7 +19,7 @@
 # It will understand the entire ecosystem in the Workstation world,
 # things like 'chef generate foo'  and 'chef analyze bar'
 name "main-cinc-wrapper"
-source path: File.join("#{project.files_path}", "../../components/main-chef-wrapper")
+source path: File.join("#{project.files_path}", "../../components/main-cinc-wrapper")
 license :project_license
 
 dependency "go"
