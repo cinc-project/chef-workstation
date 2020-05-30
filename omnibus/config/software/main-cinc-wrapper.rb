@@ -18,7 +18,7 @@
 #
 # It will understand the entire ecosystem in the Workstation world,
 # things like 'chef generate foo'  and 'chef analyze bar'
-name "main-chef-wrapper"
+name "main-cinc-wrapper"
 source path: File.join("#{project.files_path}", "../../components/main-chef-wrapper")
 license :project_license
 
@@ -27,18 +27,19 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
+  env["DIST_FILE"] = "https://cinc.sh/assets/cinc-branding-dist.json"
 
   if windows?
     # Windows systems requires an extention (EXE)
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef.exe", env: env
+    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/cinc.exe", env: env
 
-    block "Generate a 'chef' binary that calls the 'chef.exe' executable" do
-      File.open("#{install_dir}/bin/chef", "w") do |f|
+    block "Generate a 'cinc' binary that calls the 'cinc.exe' executable" do
+      File.open("#{install_dir}/bin/cinc", "w") do |f|
         f.write("@ECHO OFF\n\"%~dpn0.exe\" %*")
       end
     end
   else
     # Unix systems has no extention
-    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/chef", env: env
+    command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/cinc", env: env
   end
 end

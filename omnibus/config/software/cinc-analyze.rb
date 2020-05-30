@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-name "chef-analyze"
+name "cinc-analyze"
 default_version "master"
 license "Apache-2.0"
 license_file "LICENSE"
@@ -25,6 +25,8 @@ dependency "go"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   env["CGO_ENABLED"] = "0"
+  env["DIST_FILE"] = "https://cinc.sh/assets/cinc-branding-dist.json"
+
   file_extension = windows? ? ".exe" : ""
   command "#{install_dir}/embedded/go/bin/go build -o #{install_dir}/bin/#{name}#{file_extension}", env: env
 end
