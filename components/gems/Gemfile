@@ -50,7 +50,7 @@ group(:omnibus_package) do
   # fixes.
   gem "chef", "= 16.2.73", source: "https://packagecloud.io/cinc-project/stable"
   gem "chef-bin", "= 16.2.73", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-zero", source: "https://packagecloud.io/ramereth/cinc"
+  gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
   gem "ohai", ">= 16.2"
   gem "cheffish", ">= 15.0.0"
 
@@ -95,7 +95,7 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", ">= 3.0.4"
+  gem "chef-cli", ">= 3.0.4", source: "https://packagecloud.io/cinc-project/stable"
   gem "chef-apply", ">= 0.4.16"
 
   # For Delivery build node
