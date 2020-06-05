@@ -67,6 +67,7 @@ build do
     %w(
       chef
       chef-bin
+      chef-cli
       chef-zero
       inspec
       mixlib-install
