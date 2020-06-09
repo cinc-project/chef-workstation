@@ -97,7 +97,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 5.0", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-apply", ">= 0.4.16"
+  gem "chef-apply", ">= 0.4.16", source: "https://packagecloud.io/cinc-project/stable"
 
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
