@@ -96,7 +96,7 @@ group(:omnibus_package) do
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
   gem "chef-cli", ">= 3.0.4", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-apply", ">= 0.4.16"
+  gem "chef-apply", ">= 0.4.16", source: "https://packagecloud.io/cinc-project/stable"
 
   # For Delivery build node
   gem "mixlib-versioning"
