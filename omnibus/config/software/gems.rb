@@ -75,6 +75,7 @@ build do
   cinc_gems =
     %w(
       chef
+      chef-apply
       chef-bin
       chef-cli
       chef-zero
