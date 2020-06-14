@@ -48,7 +48,7 @@ group(:omnibus_package) do
   # gems to Rubygems now, so letting this float on latest should always give us the latest
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
-  gem "chef", "= 16.2.73", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef", "= 16.2.73", source: "https://packagecloud.io/cinc-project/unstable"
   gem "chef-bin", "= 16.2.73", source: "https://packagecloud.io/cinc-project/stable"
   gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
   gem "ohai", ">= 16.2"
