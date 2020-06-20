@@ -90,8 +90,8 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "nodejs-binary"
-dependency "chef-workstation-app"
+dependency "nodejs-binary" unless windows?
+dependency "chef-workstation-app" unless windows?
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
