@@ -20,7 +20,7 @@ license :project_license
 
 build do
   copy "#{project_dir}/cinc-wrapper", "#{install_dir}/bin/"
-  %w(chef chef-cli chef-analyze chef-apply chef-client chef-shell chef-solo inspec).each do |bin|
+  %w(chef chef-cli chef-analyze).each do |bin|
     link "#{install_dir}/bin/cinc-wrapper", "#{install_dir}/bin/#{bin}"
   end
 end
