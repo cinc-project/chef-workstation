@@ -88,7 +88,8 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "chef-workstation-app"
+# Disable chef-workstation-app build for Cinc due to wordmark issues
+# dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-env-script"
 dependency "ruby-cleanup"
