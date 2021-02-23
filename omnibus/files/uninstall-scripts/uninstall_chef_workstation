@@ -18,18 +18,15 @@ is_darwin()
 }
 
 if is_darwin; then
-  echo "This uninstaller will remove Chef Workstation."
+  echo "This uninstaller will remove Cinc Workstation."
   sudo /bin/sh -s <<'EOF'
-echo "Uninstalling Chef Workstation..."
-echo "  -> Removing Chef Workstation App..."
-/opt/chef-workstation/bin/chef_workstation_app_launcher remove
+echo "Uninstalling Cinc Workstation..."
 echo "  -> Removing files..."
 sudo rm -rf '/opt/chef-workstation'
-sudo rm -rf '/Applications/Chef Workstation App.app'
 echo "  -> Removing binary links in /usr/local/bin..."
 sudo find /usr/local/bin -lname '/opt/chef-workstation/*' -delete
 echo "  -> Forgetting com.getchef.pkg.chef-workstation package..."
 sudo pkgutil --forget com.getchef.pkg.chef-workstation > /dev/null 2>&1;
-echo "Chef Workstation Uninstalled."
+echo "Cinc Workstation Uninstalled."
 EOF
 fi

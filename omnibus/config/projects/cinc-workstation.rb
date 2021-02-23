@@ -91,8 +91,9 @@ if windows?
   dependency "ruby-windows-system-libraries"
 end
 
-dependency "nodejs-binary"
-dependency "chef-workstation-app"
+# Disable chef-workstation-app builds for Cinc due to wordmark issues
+# dependency "nodejs-binary"
+# dependency "chef-workstation-app"
 dependency "uninstall-scripts"
 dependency "ruby-cleanup"
 
