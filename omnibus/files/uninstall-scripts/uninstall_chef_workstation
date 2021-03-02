@@ -22,11 +22,11 @@ if is_darwin; then
   sudo /bin/sh -s <<'EOF'
 echo "Uninstalling Cinc Workstation..."
 echo "  -> Removing files..."
-sudo rm -rf '/opt/chef-workstation'
+sudo rm -rf '/opt/cinc-workstation'
 echo "  -> Removing binary links in /usr/local/bin..."
-sudo find /usr/local/bin -lname '/opt/chef-workstation/*' -delete
-echo "  -> Forgetting com.getchef.pkg.chef-workstation package..."
-sudo pkgutil --forget com.getchef.pkg.chef-workstation > /dev/null 2>&1;
+sudo find /usr/local/bin -lname '/opt/cinc-workstation/*' -delete
+echo "  -> Forgetting com.cinc-project.pkg.cinc-workstation package..."
+sudo pkgutil --forget com.cinc-project.pkg.cinc-workstation > /dev/null 2>&1;
 echo "Cinc Workstation Uninstalled."
 EOF
 fi
