@@ -107,9 +107,6 @@ dependency "cinc-analyze"
 # removes the go language installed at embedded/go
 dependency "go-uninstall"
 
-# Copy Cinc wrapper for various binaries
-dependency "cinc-workstation"
-
 exclude "**/.git"
 exclude "**/bundler/git"
 
