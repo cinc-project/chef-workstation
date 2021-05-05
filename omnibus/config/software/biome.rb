@@ -19,8 +19,8 @@ name "biome"
 license :project_license
 skip_transitive_dependency_licensing true
 
-default_version "1.6.222"
-linux_sha = "d097c7fbffb5f97ca68816568ada1bbb0fa83ce4c5fd53ad5c05daf91e804b72"
+default_version "1.6.300"
+linux_sha = "902a8c2802b5dac1a30acd482b5660ca573d861d8a3d75df0c70a8bc4c2a48f4"
 darwin_sha = ""
 windows_sha = ""
 
@@ -37,7 +37,7 @@ else
   raise "biome dep is only available for windows, linux, and mac"
 end
 
-source url: "https://github.com/biome-sh/biome/releases/download/v#{version}/bio-#{version}-x86_64-#{suffix}",
+source url: "https://github.com/biome-sh/biome/releases/download/#{version}/bio-#{version}-x86_64-#{suffix}",
   sha256: sha256
 
 build do
