@@ -78,6 +78,7 @@ build do
       chef-apply
       chef-bin
       chef-cli
+      chef-utils
       chef-zero
       inspec
       mixlib-install
