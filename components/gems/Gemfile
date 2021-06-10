@@ -68,6 +68,7 @@ group(:omnibus_package) do
   end
 
   gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-utils", source: "https://packagecloud.io/cinc-project/stable"
   gem "cheffish", ">= 17.0"
 
   # chefspec
