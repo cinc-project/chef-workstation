@@ -55,6 +55,8 @@ group(:omnibus_package) do
     source: "https://packagecloud.io/cinc-project/stable"
   gem "chef-zero",
     source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-utils",
+    source: "https://packagecloud.io/cinc-project/stable"
   gem "ohai", ">= 17.0"
   gem "cheffish", ">= 17.0"
 
