@@ -64,6 +64,7 @@ group(:omnibus_package) do
   gem "inspec", "~> 5.18.14", source: "https://packagecloud.io/cinc-project/stable"
 
   gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-utils", source: "https://packagecloud.io/cinc-project/stable"
   gem "cheffish", ">= 17.0"
 
   gem "inspec-bin", "~> 5"
