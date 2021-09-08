@@ -21,7 +21,7 @@ package main
 import (
 	"os"
 
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/cmd"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/cmd"
 	homedir "github.com/mitchellh/go-homedir"
 )
 
@@ -30,12 +30,12 @@ func doStartupTasks() error {
 	return nil
 }
 
-// Attempts to create the ~/.chef directory.
+// Attempts to create the ~/.cinc directory.
 // Does not report an error if this fails, because it is non-fatal:
 // operations can continue if we don't create .chef, but the user might
 // see some warnings from specific tools that want it.
 func createDotChef() {
-	path, err := homedir.Expand("~/.chef")
+	path, err := homedir.Expand("~/.cinc")
 	if err != nil {
 		return
 	}
