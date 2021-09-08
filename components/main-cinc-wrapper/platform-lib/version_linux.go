@@ -19,7 +19,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/lib"
 	"io/ioutil"
 	"log"
 	"os"
