@@ -24,7 +24,7 @@ import (
 	"os"
 
 	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
-	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	platform_lib "gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/platform-lib"
 	"github.com/spf13/cobra"
 )
 
