@@ -19,8 +19,9 @@ package main
 import (
 	"fmt"
 	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/platform-lib"
 	//"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
 	"github.com/mitchellh/go-homedir"
 	"os"
 	"os/exec"
