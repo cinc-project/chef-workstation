@@ -135,7 +135,7 @@ func ExpectedOmnibusRoot() string {
 	var rootPath string
 	var cwsRegKeyInstallDir = "InstallDir"
 	//windows registry code here
-	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Chef\Chef Workstation`, registry.QUERY_VALUE)
+	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SOFTWARE\Cinc\Cinc Workstation`, registry.QUERY_VALUE)
 	if err != nil {
 		log.Fatal(err)
 	}
