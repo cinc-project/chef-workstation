@@ -17,8 +17,10 @@ package platform_lib
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/lib"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	//"github.com/chef/chef-workstation/components/main-chef-wrapper/lib"
 	"golang.org/x/sys/windows/registry"
 	"io/ioutil"
 	"log"
