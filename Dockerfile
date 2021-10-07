@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 LABEL maintainer="Cinc Project <docker@cinc.sh>"
 
 ARG CHANNEL=unstable
-ARG VERSION=21.8.555
+ARG VERSION=21.9.613
 ENV DEBIAN_FRONTEND=noninteractive \
     PATH=/opt/cinc-workstation/bin:/opt/cinc-workstation/embedded/bin:/root/.chefdk/gem/ruby/2.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
