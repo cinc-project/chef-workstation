@@ -19,8 +19,8 @@ name "biome"
 license :project_license
 skip_transitive_dependency_licensing true
 
-default_version "1.6.372"
-linux_sha = "8cd6cff2255d9ebc8a3fc899454bb27bc6eb2b523409e31bcc17b22917a5bb39"
+default_version "1.6.474"
+linux_sha = "4dcd9180c5e9c3b37fff91199e8a1c975b5aebb4690483c9ce721f3e3784894c"
 darwin_sha = ""
 windows_sha = ""
 
