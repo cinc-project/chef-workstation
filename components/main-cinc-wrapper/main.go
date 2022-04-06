@@ -55,9 +55,9 @@ func createDotChef() {
 }
 
 func createRubyEnvUnix() {
-	InstallerDir := "/opt/chef-workstation"
+	InstallerDir := "/opt/cinc-workstation"
 	home, err := os.UserHomeDir()
-	installationPath := path.Join(home, ".chef/ruby-env.json")
+	installationPath := path.Join(home, ".cinc/ruby-env.json")
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
@@ -90,9 +90,9 @@ func createRubyEnvUnix() {
 }
 
 func createRubyEnvWindows() {
-	InstallerDir := `C:\opscode\chef-workstation`
+	InstallerDir := `C:\cinc-project\cinc-workstation`
 	home, err := os.UserHomeDir()
-	installationPath := path.Join(home, `.chef\ruby-env.json`)
+	installationPath := path.Join(home, `.cinc\ruby-env.json`)
 	result, err := exists(installationPath)
 	if err != nil {
 		log.Fatalf(err.Error())
