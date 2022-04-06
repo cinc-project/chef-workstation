@@ -146,7 +146,7 @@ func ExpectedOmnibusRoot() string {
 
 func UnmarshallRubyEnv() map[string]interface{} {
 	home, err := os.UserHomeDir()
-	filepath := path.Join(home, ".chef/ruby-env.json")
+	filepath := path.Join(home, ".cinc/ruby-env.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
@@ -175,7 +175,7 @@ func MatchVersions() bool {
 func EnvDoc() (string, map[string]interface{}, bool, bool) {
 	home, err := os.UserHomeDir()
 	WorkstationVersion := componentVersion("build_version")
-	filepath := path.Join(home, ".chef/ruby-env.json")
+	filepath := path.Join(home, ".cinc/ruby-env.json")
 	jsonFile, err := os.Open(filepath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR:", err.Error())
