@@ -20,7 +20,7 @@ package main
 
 import (
 	"fmt"
-	platform_lib "github.com/chef/chef-workstation/components/main-chef-wrapper/platform-lib"
+	platform_lib "gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/platform-lib"
 	"log"
 	"os"
 	"os/exec"
