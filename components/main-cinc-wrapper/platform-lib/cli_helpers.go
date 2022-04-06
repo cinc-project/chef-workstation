@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
 )
 
 var rubyenvMap map[string]interface{}
