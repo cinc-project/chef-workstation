@@ -6,7 +6,7 @@
 - Bump Chef Workstation App to 0.2.167 [#2828](https://github.com/chef/chef-workstation/pull/2828) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 <!-- latest_release -->
 
-<!-- release_rollup since=22.5.923 -->
+<!-- release_rollup since=22.6.973 -->
 ### Changes not yet released to stable
 
 #### Merged Pull Requests
@@ -62,6 +62,60 @@
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [22.6.973](https://github.com/chef/chef-workstation/tree/22.6.973) (2022-06-06)
+
+#### Merged Pull Requests
+- Bump omnibus-software from `80234e7` to `3a2a5f9` in /omnibus [#2768](https://github.com/chef/chef-workstation/pull/2768) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.155 [#2769](https://github.com/chef/chef-workstation/pull/2769) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `3a2a5f9` to `99b8d53` in /omnibus [#2770](https://github.com/chef/chef-workstation/pull/2770) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.156 [#2771](https://github.com/chef/chef-workstation/pull/2771) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.157 [#2773](https://github.com/chef/chef-workstation/pull/2773) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.166 [#2774](https://github.com/chef/chef-workstation/pull/2774) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.167 [#2775](https://github.com/chef/chef-workstation/pull/2775) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `99b8d53` to `fe68016` in /omnibus [#2777](https://github.com/chef/chef-workstation/pull/2777) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.158 [#2779](https://github.com/chef/chef-workstation/pull/2779) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.169 [#2780](https://github.com/chef/chef-workstation/pull/2780) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump cookbook-omnifetch to 0.12.2 [#2781](https://github.com/chef/chef-workstation/pull/2781) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `fe68016` to `1692d72` in /omnibus [#2782](https://github.com/chef/chef-workstation/pull/2782) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump berkshelf to 8.0.1 [#2783](https://github.com/chef/chef-workstation/pull/2783) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `1692d72` to `36f49ec` in /omnibus [#2785](https://github.com/chef/chef-workstation/pull/2785) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump berkshelf from 8.0.0 to 8.0.1 in /omnibus [#2784](https://github.com/chef/chef-workstation/pull/2784) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.170 [#2786](https://github.com/chef/chef-workstation/pull/2786) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.159 [#2787](https://github.com/chef/chef-workstation/pull/2787) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- INFCT-76 - Add knife-vrealize to workstation [#2788](https://github.com/chef/chef-workstation/pull/2788) ([ashiqueps](https://github.com/ashiqueps))
+- Bump Chef Workstation App to 0.2.160 [#2790](https://github.com/chef/chef-workstation/pull/2790) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.171 [#2792](https://github.com/chef/chef-workstation/pull/2792) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.172 [#2793](https://github.com/chef/chef-workstation/pull/2793) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Remove hugo and go version from netlify config [#2795](https://github.com/chef/chef-workstation/pull/2795) ([IanMadd](https://github.com/IanMadd))
+- Bump omnibus-software from `36f49ec` to `c9447a3` in /omnibus [#2796](https://github.com/chef/chef-workstation/pull/2796) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus from `63be4f1` to `8ecfecd` in /omnibus [#2797](https://github.com/chef/chef-workstation/pull/2797) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.173 [#2798](https://github.com/chef/chef-workstation/pull/2798) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `8ecfecd` to `78ad41d` in /omnibus [#2800](https://github.com/chef/chef-workstation/pull/2800) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.174 [#2801](https://github.com/chef/chef-workstation/pull/2801) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.162 [#2802](https://github.com/chef/chef-workstation/pull/2802) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `c9447a3` to `29ebd6c` in /omnibus [#2803](https://github.com/chef/chef-workstation/pull/2803) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.175 [#2804](https://github.com/chef/chef-workstation/pull/2804) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.163 [#2805](https://github.com/chef/chef-workstation/pull/2805) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus from `78ad41d` to `83d8428` in /omnibus [#2806](https://github.com/chef/chef-workstation/pull/2806) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump omnibus-software from `29ebd6c` to `2a02801` in /omnibus [#2807](https://github.com/chef/chef-workstation/pull/2807) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump rack from 2.2.3 to 2.2.3.1 in /omnibus [#2808](https://github.com/chef/chef-workstation/pull/2808) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chef-analyze CLI to 0.1.177 [#2810](https://github.com/chef/chef-workstation/pull/2810) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-ec2 to 3.13.0 [#2811](https://github.com/chef/chef-workstation/pull/2811) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `2a02801` to `a63bd71` in /omnibus [#2813](https://github.com/chef/chef-workstation/pull/2813) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.164 [#2814](https://github.com/chef/chef-workstation/pull/2814) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump omnibus-software from `a63bd71` to `a9b13a0` in /omnibus [#2816](https://github.com/chef/chef-workstation/pull/2816) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump kitchen-inspec to 2.6.0 [#2817](https://github.com/chef/chef-workstation/pull/2817) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump kitchen-vcenter to 2.11.13 [#2818](https://github.com/chef/chef-workstation/pull/2818) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump mixlib-install to 3.12.19 [#2819](https://github.com/chef/chef-workstation/pull/2819) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.178 [#2820](https://github.com/chef/chef-workstation/pull/2820) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.165 [#2822](https://github.com/chef/chef-workstation/pull/2822) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump chef-analyze CLI to 0.1.179 [#2821](https://github.com/chef/chef-workstation/pull/2821) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump berkshelf to 8.0.2 [#2823](https://github.com/chef/chef-workstation/pull/2823) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump github.com/chef/go-chef-cli from 0.0.3 to 0.0.4 in /components/main-chef-wrapper [#2825](https://github.com/chef/chef-workstation/pull/2825) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump Chef Workstation App to 0.2.166 [#2826](https://github.com/chef/chef-workstation/pull/2826) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+- Bump Chef Workstation App to 0.2.167 [#2828](https://github.com/chef/chef-workstation/pull/2828) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
+<!-- latest_stable_release -->
+
 ## [22.5.923](https://github.com/chef/chef-workstation/tree/22.5.923) (2022-05-11)
 
 #### Merged Pull Requests
@@ -127,7 +181,6 @@
 - Update dependencies based on `bundle update` run [#2764](https://github.com/chef/chef-workstation/pull/2764) ([vkarve-chef](https://github.com/vkarve-chef))
 - Bump knife to 17.10.0 [#2766](https://github.com/chef/chef-workstation/pull/2766) ([chef-expeditor[bot]](https://github.com/chef-expeditor[bot]))
 - Bump omnibus-software from `8a0e391` to `80234e7` in /omnibus [#2767](https://github.com/chef/chef-workstation/pull/2767) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [22.4.861](https://github.com/chef/chef-workstation/tree/22.4.861) (2022-04-05)
 
