@@ -45,7 +45,7 @@ build do
     # apple silicon
     env["GOOS"]   = "darwin"
     env["GOARCH"] = "arm64"
-    go "build -o #{install_dir}/bin/chef", env: env
+    go "build -o #{install_dir}/bin/cinc", env: env
   else
     # Unix systems has no extention
     go "build -o #{install_dir}/bin/cinc", env: env
