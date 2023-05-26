@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-const configPath = ".chef"
+const configPath = ".cinc"
 const configFileName = "config.rb"
 
 // Config this will contain all configuration required by chef  command like chef infra server url,
@@ -69,7 +69,7 @@ func GetConfigPath(fileName string) string {
 func GetDefaultConfigPath() string {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		return filepath.Join("/etc/chef", configPath)
+		return filepath.Join("/etc/cinc", configPath)
 	}
 	if !checkChefDirExists(homeDir) {
 		fmt.Printf("WARNING: No chef configuration file found at %s", homeDir)
