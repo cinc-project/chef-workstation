@@ -163,7 +163,7 @@ func exists(path string) (bool, error) {
 func checkLicenseFlag() {
 	home, _ := os.UserHomeDir()
 	if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "true" {
-		f, err := os.Create(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+		f, err := os.Create(filepath.Join(home, ".cinc/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if err != nil {
 			log.Fatal("Not able to enable chef")
 		}
@@ -172,14 +172,14 @@ func checkLicenseFlag() {
 		log.Println("Now you can use chef commands using the license.")
 		os.Exit(0)
 	} else if len(os.Args) > 3 && os.Args[1] == "license" && os.Args[2] == "enable" && os.Args[3] == "false" {
-		err := os.Remove(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+		err := os.Remove(filepath.Join(home, ".cinc/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if err != nil {
 			log.Fatal("Not able to disable chef")
 		}
 		log.Println("License feature got disabled")
 		os.Exit(0)
 	} else if len(os.Args) > 2 && os.Args[1] == "license" {
-		info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+		info, _ := os.Stat(filepath.Join(home, ".cinc/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 		if info == nil {
 			log.Fatal("To use chef license feature you need to enable the license flag. \nTo enable it run `chef license enable true`")
 		}
@@ -189,7 +189,7 @@ func checkLicenseFlag() {
 
 func featureEnabled() bool {
 	home, _ := os.UserHomeDir()
-	licensePath := filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c")
+	licensePath := filepath.Join(home, ".cinc/fbffb2ea48910514676e1b7a51c7248290ea958c")
 	info, _ := os.Stat(licensePath)
 	if info != nil {
 		return true
