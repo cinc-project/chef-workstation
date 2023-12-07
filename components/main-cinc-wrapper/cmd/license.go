@@ -23,7 +23,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/chef/chef-workstation/components/main-chef-wrapper/dist"
+	"gitlab.com/cinc-project/upstream/chef-workstation/components/main-cinc-wrapper/dist"
 	"github.com/spf13/cobra"
 )
 
@@ -39,7 +39,7 @@ var licenseCmd = &cobra.Command{
 func init() {
 	licenseCmd.Short = fmt.Sprintf(licenseCmd.Short, dist.WorkstationProduct)
 	home, _ := os.UserHomeDir()
-	info, _ := os.Stat(filepath.Join(home, ".chef/fbffb2ea48910514676e1b7a51c7248290ea958c"))
+	info, _ := os.Stat(filepath.Join(home, ".cinc/fbffb2ea48910514676e1b7a51c7248290ea958c"))
 	if info != nil {
 		RootCmd.AddCommand(licenseCmd)
 	}
