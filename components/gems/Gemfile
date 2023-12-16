@@ -36,7 +36,8 @@ end
 
 group(:dep_selector) do
   gem "dep_selector"
-  gem "dep-selector-libgecode"
+  # TODO: Remove once new gem has been released upstream
+  gem "dep-selector-libgecode", source: "https://packagecloud.io/cinc-project/unstable"
 end
 
 # We tend to track latest stable release without pinning.
