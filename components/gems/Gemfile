@@ -53,14 +53,14 @@ group(:omnibus_package) do
   # stable release. May have to re-pin around major version bumping time, or during patch
   # fixes.
 
-  gem "chef", ">= 18.2", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-bin", ">= 18.2", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef", ">= 18.2", source: "https://rubygems.cinc.sh"
+  gem "chef-bin", ">= 18.2", source: "https://rubygems.cinc.sh"
   gem "ohai", "~> 18.1"
-  gem "cinc-auditor-bin", "~> 5", source: "https://packagecloud.io/cinc-project/stable"
-  gem "inspec", "~> 5", source: "https://packagecloud.io/cinc-project/stable"
+  gem "cinc-auditor-bin", "~> 5", source: "https://rubygems.cinc.sh"
+  gem "inspec", "~> 5", source: "https://rubygems.cinc.sh"
 
-  gem "chef-zero", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-utils", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-zero", source: "https://rubygems.cinc.sh"
+  gem "chef-utils", source: "https://rubygems.cinc.sh"
   gem "cheffish", ">= 17.0"
 
   gem "inspec-bin", "~> 5"
@@ -85,7 +85,7 @@ group(:omnibus_package) do
   gem "kitchen-vra", ">= 3.0"
 
   # knife & plugins
-  gem "knife", ">= 18.2", source: "https://packagecloud.io/cinc-project/stable"
+  gem "knife", ">= 18.2", source: "https://rubygems.cinc.sh"
   gem "knife-azure", ">= 3.0.0"
   gem "knife-ec2", ">= 1.0.28"
   gem "knife-google", ">= 4.2.7"
@@ -98,8 +98,8 @@ group(:omnibus_package) do
   # ed25519 ssh key support done here as it's a native gem we can't put in train
   gem "ed25519"
   gem "bcrypt_pbkdf", ">= 1.1.0.rc1"
-  gem "chef-cli", ">= 5.3.1", source: "https://packagecloud.io/cinc-project/stable"
-  gem "chef-apply", ">= 0.4.16", source: "https://packagecloud.io/cinc-project/stable"
+  gem "chef-cli", ">= 5.3.1", source: "https://rubygems.cinc.sh"
+  gem "chef-apply", ">= 0.4.16", source: "https://rubygems.cinc.sh"
 
   # chef-telemetry previously pulled in an unecessary library (http)
   gem "chef-telemetry", ">= 1.0.8"
@@ -108,7 +108,7 @@ group(:omnibus_package) do
   gem "mixlib-archive", ">= 1.0"
   gem "net-ssh", ">= 4.2.0"
   gem "listen"
-  gem "mixlib-install", source: "https://packagecloud.io/cinc-project/stable"
+  gem "mixlib-install", source: "https://rubygems.cinc.sh"
   gem "nokogiri", ">= 1.11.7"
   # Locked because pry-byebug is broken with 13+
   # some work is ongoing? https://github.com/deivid-rodriguez/pry-byebug/issues/343
