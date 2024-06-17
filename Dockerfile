@@ -21,7 +21,7 @@ ENV LANG=en_US.UTF-8 \
 RUN apt-get update && \
     apt-get install -y gcc=4:11.2.* git=1:2.34.* graphviz=2.42.* make=4.3-* rsync=3.2.* ssh=1:8.9p1-* vim-tiny=2:8.2.* wget=1.21.* && \ 
     ln -s /usr/bin/vi /usr/bin/vim && \
-    wget --content-disposition "http://ftp-osl.osuosl.org/pub/cinc/files/${CHANNEL}/cinc-workstation/${VERSION}/ubuntu/18.04/cinc-workstation_${VERSION}-1_amd64.deb" -O /tmp/cinc-workstation.deb && \
+    wget --content-disposition "http://ftp-osl.osuosl.org/pub/cinc/files/${CHANNEL}/cinc-workstation/${VERSION}/ubuntu/22.04/cinc-workstation_${VERSION}-1_amd64.deb" -O /tmp/cinc-workstation.deb && \
     dpkg -i /tmp/cinc-workstation.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/*log /var/log/apt/* /var/lib/dpkg/*-old /var/cache/debconf/*-old
