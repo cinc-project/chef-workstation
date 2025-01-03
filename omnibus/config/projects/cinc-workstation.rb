@@ -142,6 +142,7 @@ package :msi do
   upgrade_code "9870C512-DF2C-43D9-8C28-7ACD60ABBE27"
   wix_light_extension "WixUtilExtension"
   # signing_identity "33A82DC08CA7C6B370FFD0C958D9EE30187DE9E4", machine_store: false, keypair_alias: "key_1340572417"
+  wix_light_delay_validation true
 end
 
 # We don't support appx builds, and they eat a lot of time.
