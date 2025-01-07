@@ -37,12 +37,6 @@ group(:omnibus_package, :development, :test) do
   gem "net-imap", ">= 0.2.5" # 0.2.5+ required for CVE fix - GHSA-j3g3-5qv5-52mj
 end
 
-group(:dep_selector) do
-  gem "dep_selector"
-  # TODO: Remove once new gem has been released upstream
-  gem "dep-selector-libgecode", source: "https://packagecloud.io/cinc-project/unstable"
-end
-
 # We tend to track latest stable release without pinning.
 # In order to prevent the depsolver from downgrading we pin some floors with ">=".
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
