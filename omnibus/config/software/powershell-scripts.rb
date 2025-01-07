@@ -17,6 +17,8 @@
 
 # This is a windows only dependency
 
+default_version '1.0.0'
+
 name "powershell-scripts"
 
 skip_transitive_dependency_licensing true
