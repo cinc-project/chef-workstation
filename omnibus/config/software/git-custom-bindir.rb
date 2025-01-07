@@ -1,6 +1,5 @@
 #
-# Copyright:: Copyright Chef Software, Inc.
-# License:: Apache License, Version 2.0
+# Copyright:: Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,6 +29,7 @@ default_version "2.43.7"
 
 license "LGPL-2.1"
 license_file "LGPL-2.1"
+skip_transitive_dependency_licensing true
 
 dependency "curl"
 dependency "zlib"
@@ -51,44 +51,66 @@ build do
 
   # We do a distclean so we ensure that the autoconf files are not trying to be
   # clever.
-  make "distclean", env: env
+  make "distclean"
 
-  # Universal options
+  # In 2.13.1 they introduced some sha code that wasn't super good at endianness
+  if aix?
+    # AIX needs /opt/freeware/bin only for patch
+    patch_env = env.dup
+    patch_env["PATH"] = "/opt/freeware/bin:#{env["PATH"]}"
+
+    patch source: "aix-endian-fix.patch", plevel: 0, env: patch_env
+  end
+
   config_hash = {
+    # Universal options
     NO_GETTEXT: "YesPlease",
     NEEDS_LIBICONV: "YesPlease",
     NO_INSTALL_HARDLINKS: "YesPlease",
     NO_PERL: "YesPlease",
     NO_PYTHON: "YesPlease",
     NO_TCLTK: "YesPlease",
-    NO_R_TO_GCC_LINKER: "YesPlease",
-    HAVE_PATHS_H: "YesPlease",
   }
 
   if freebsd?
     config_hash["CHARSET_LIB"] = "-lcharset"
     config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
-    config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
     config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
     config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
     config_hash["HAVE_GETDELIM"] = "YesPlease"
+    config_hash["HAVE_PATHS_H"] = "YesPlease"
     config_hash["HAVE_STRINGS_H"] = "YesPlease"
     config_hash["PTHREAD_LIBS"] = "-pthread"
     config_hash["USE_ST_TIMESPEC"] = "YesPlease"
-  elsif macos?
-    config_hash["CHARSET_LIB"] = "-lcharset"
-    config_hash["FREAD_READS_DIRECTORIES"] = "UnfortunatelyYes"
     config_hash["HAVE_BSD_SYSCTL"] = "YesPlease"
-    config_hash["HAVE_CLOCK_GETTIME"] = "YesPlease"
-    config_hash["HAVE_CLOCK_MONOTONIC"] = "YesPlease"
-    config_hash["HAVE_GETDELIM"] = "YesPlease"
-    config_hash["HAVE_LIBCHARSET_H"] = "YesPlease"
-    config_hash["HAVE_STRINGS_H"] = "YesPlease"
-    config_hash["USE_ST_TIMESPEC"] = "YesPlease"
-    env["CFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
-    env["CPPFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
-    env["CXXFLAGS"] = "-O3 -D_FORTIFY_SOURCE=2 -fstack-protector"
+    config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
+  elsif aix?
+    env["CC"] = "xlc_r"
+    env["INSTALL"] = "/opt/freeware/bin/install"
+    env["CFLAGS"] = "-q64 -qmaxmem=-1 -I#{install_dir}/embedded/include -D_LARGE_FILES -O2"
+    env["CPPFLAGS"] = "-q64 -qmaxmem=-1 -I#{install_dir}/embedded/include -D_LARGE_FILES -O2"
+    env["LDFLAGS"] = "-q64 -L#{install_dir}/embedded/lib -lcurl -lssl -lcrypto -lz -Wl,-blibpath:#{install_dir}/embedded/lib:/usr/lib:/lib"
+    # xlc doesn't understand the '-Wl,-rpath' syntax at all so... we don't enable
+    # the NO_R_TO_GCC_LINKER flag. This means that it will try to use the
+    # old style -R for libraries and as a result, xlc will ignore it. In this case, we
+    # we want that to happen because we explicitly set the libpath with the correct
+    # command line argument in omnibus itself.
+    config_hash["CC_LD_DYNPATH"] = "-R"
+    config_hash["AR"] = "ar -X64"
+    config_hash["NO_REGEX"] = "YesPlease"
+  else
+    # Linux things!
+    config_hash["HAVE_PATHS_H"] = "YesPlease"
+    config_hash["NO_R_TO_GCC_LINKER"] = "YesPlease"
   end
+
+  # ensure that header files in git's source code are found first before looking in other directories
+  # this solves an issue that occurs when libarchive has been built and installed and its archive.h header
+  # file in #{install_dir}/embedded/include is accidentally picked up when compiling git
+  env["CFLAGS"] = "-I. #{env["CFLAGS"]}"
+  env["CPPFLAGS"] = "-I. #{env["CPPFLAGS"]}"
+  env["CXXFLAGS"] = "-I. #{env["CXXFLAGS"]}"
+  env["CFLAGS"] = "-std=c99 #{env["CFLAGS"]}"
 
   erb source: "config.mak.erb",
       dest: "#{project_dir}/config.mak",
@@ -105,6 +127,7 @@ build do
                config_hash: config_hash,
              }
 
+  #
   # NOTE - If you run ./configure the environment variables set above will not be
   # used and only the command line args will be used. The issue with this is you
   # cannot specify everything on the command line that you can with the env vars.
