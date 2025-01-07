@@ -36,12 +36,6 @@ group(:omnibus_package, :development, :test) do
   gem "rdoc", "~> 6.4.1" # 6.4.1.1 required for CVE-2024-27281, allow patch upgrades
 end
 
-group(:dep_selector) do
-  gem "dep_selector"
-  # TODO: Remove once new gem has been released upstream
-  gem "dep-selector-libgecode", source: "https://packagecloud.io/cinc-project/unstable"
-end
-
 # We tend to track latest stable release without pinning.
 # In order to prevent the depsolver from downgrading we pin some floors with ">=".
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
