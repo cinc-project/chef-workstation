@@ -7,7 +7,12 @@ override "chef-analyze", version: "0.1.187"
 # /DO NOT MODIFY
 
 override "libarchive", version: "3.7.9"
-override "libffi", version: "3.4.2"
+# MacOS 15 on arm64 requires newer libffi
+if macos? && platform_version.satisfies?(">=15") && !intel?
+  override "libffi", version: "3.4.7"
+else
+  override "libffi", version: "3.4.2"
+end
 override "libiconv", version: "1.16"
 override "liblzma", version: "5.2.5"
 override "curl", version: "8.12.1"
