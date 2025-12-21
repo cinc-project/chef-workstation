@@ -104,4 +104,25 @@ build do
     gemdir = shellout!("#{install_dir}/embedded/bin/gem environment gemdir", env: env).stdout.chomp
     remove_directory "#{gemdir}/bundler"
   end
+
+  # Patch chef-bin for IRB compatibility issue with Ruby 3.1.x
+  # @ALIASES was removed from irb in v1.13.0, but chef-shell can still be run in contexts that
+  # use the Ruby 3.1.x default of irb v1.4.1
+  # See: https://github.com/chef/chef/pull/15336
+  block "Patch chef-bin for IRB compatibility" do
+    patch_file = File.expand_path(File.join(__dir__, "..", "patches", "chef-bin", "chef-shell-irb-compatibility.patch"))
+    Dir.glob("#{install_dir}/embedded/lib/ruby/gems/*/gems/chef-18*/lib/chef/shell.rb") do |shell_rb|
+      # Apply from the gem root so -p1 matches a/lib/chef/shell.rb
+      shell_dir = File.expand_path("../../..", shell_rb)
+      shell_content = File.read(shell_rb)
+
+      unless shell_content.include?("IRB::ExtendCommandBundle.instance_variable_get(:@ALIASES).delete")
+        puts "Already patched: #{shell_rb}"
+        next
+      end
+
+      puts "Patching #{shell_rb}"
+      command "cd #{shell_dir} && patch -p1 < #{patch_file}", env: env
+    end
+  end
 end
